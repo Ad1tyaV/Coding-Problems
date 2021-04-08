@@ -1,0 +1,47 @@
+/*
+ * // This is the custom function interface.
+ * // You should not implement it, or speculate about its implementation
+ * class CustomFunction {
+ * public:
+ *     // Returns f(x, y) for any given positive integers x and y.
+ *     // Note that f(x, y) is increasing with respect to both x and y.
+ *     // i.e. f(x, y) < f(x + 1, y), f(x, y) < f(x, y + 1)
+ *     int f(int x, int y);
+ * };
+ */
+
+class Solution {
+public:
+    vector<vector<int>> findSolution(CustomFunction& customfunction, int z) {
+                
+        int i=1;
+        int j=1000;
+        int mid = i+(j-i)/2;
+        vector<vector<int>> ans;
+        
+        
+        for(int x=1;x<=1000;x++){
+            i=1;
+            j=1000;
+            while(i<j){             
+                mid = (i+j)/2;
+                
+                int val = customfunction.f(x, mid);
+                
+                if(val==z){
+                    ans.push_back({x,mid});
+                    j=mid;
+                    break;
+                }
+                else if(val>z){
+                    j=mid;
+                }
+                else {
+                    i=mid+1;
+                }
+                
+            }            
+        }
+        return ans;
+    }
+};
