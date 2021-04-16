@@ -1,6 +1,8 @@
 class Solution {
 public:
     
+    // https://leetcode.com/problems/minimum-cost-for-tickets
+    
     //Linear Search
 //     int search(vector<int> days, int target){
         
