@@ -27,6 +27,20 @@ public:
         if(!head)
             return head;
         
+        if(head->next==NULL){
+            
+            if(head->random==NULL){
+                return new Node(head->val);
+            }
+            else{
+                Node* temp = new Node(head->val);
+                temp->random = temp;
+                return temp;
+            }
+            
+        }
+            
+        
         map<Node*, pair<Node*, Node*>> mp;
         map<Node*, Node*> oldNew;
         
