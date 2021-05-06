@@ -25,8 +25,11 @@ public:
             
             
             if(paragraph[i]=='!' || paragraph[i]=='?' || paragraph[i]==',' || paragraph[i]=='\'' || paragraph[i]==',' || paragraph[i]==';' || paragraph[i]=='.' || paragraph[i]==' '){
-                                
-                mp[word]++;
+                
+                if(ban_set.find(word)==ban_set.end()){
+                    mp[word]++;                    
+                }
+
                 word="";
             }
             else{
@@ -52,20 +55,10 @@ public:
                 pq.push({it->second, it->first});            
         }
         
+        if(pq.size())
+            return pq.top().second;
         
-        
-        while(true){
-         
-            if(pq.size()==0)
-                break;
-            pair<int, string> temp = pq.top();            
-            if(ban_set.find(temp.second)==ban_set.end())
-                return temp.second;
-            
-            pq.pop();
-            
-        }
-        
+
         
         return "";
     }
