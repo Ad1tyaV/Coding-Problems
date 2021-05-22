@@ -1,9 +1,3 @@
-/*
-
-https://leetcode.com/problems/course-schedule/
-
-*/
-
 class Solution {
 public:
     
@@ -21,10 +15,11 @@ public:
         
         vector<vector<int>> adjList(numCourses, vector<int>());
         
-        
+        // Creating Adjacency List
         for(int i=0; i<prerequisites.size(); i++){            
             adjList[prerequisites[i][0]].push_back(prerequisites[i][1]);            
         }
+		//Stack for DFS
         stack<int> stackCourses;
         for(int course = 0; course < numCourses; course++){
             
@@ -35,15 +30,16 @@ public:
                 while(!stackCourses.empty()){
                     
                     int top = stackCourses.top();
-                    int count = 0;
+                    int count = 0; //To check how many neighbours of current node are visited
                     
                     for(int neighbour:adjList[top]){
                         
+						// Already GREY was visited, so cycle exists!
                         if(colors[neighbour]==GREY)
                             return false;
                         
                         if(colors[neighbour]==BLACK){
-                            count++;
+                            count++;							
                         }
                         else{
                             stackCourses.push(neighbour);
@@ -52,7 +48,7 @@ public:
                         }
                         
                     }
-                    
+                    //Pop off if there aren't any more unvisited children
                     if(count==adjList[top].size()){
                         stackCourses.pop();
                         colors[top] = BLACK;
