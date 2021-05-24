@@ -2,6 +2,8 @@
 
 https://www.hackerrank.com/challenges/minimum-swaps-2/problem?isFullScreen=true
 
+Terminal Version - https://github.com/Ad1tyaV/Coding-Problems/blob/main/TerminalVersion/minimum-number-of-swaps.cpp
+
 */
 #include <bits/stdc++.h>
 
