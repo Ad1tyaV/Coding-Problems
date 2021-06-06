@@ -15,12 +15,8 @@ $ ./smallSub
 
 using namespace std;
 
-int main(){
+int computeAnswer(string source, vector<char> substring){
 
-    // string source = "xyyzyzyx";
-    // vector<char> substring = {'x', 'y', 'z'};
-    string source = "ADOBECODEBANC";
-    vector<char> substring = {'A', 'B', 'C'};
     pair<int, int> ans;
     int min_length = INT_MAX;
     
@@ -102,10 +98,21 @@ int main(){
 
     }
     
-    cout<<"Minimum Length="<<min_length<<"\n";
-    cout<<"Ans="<<ans.first<<","<<ans.second<<endl;
+    
+    cout<<"[start,end]="<<ans.first<<","<<ans.second<<endl;
+    return min_length;
+    
+}
 
-    // cout<<"Minimum Length="<<min_length<<" left="<<leftPointer<<"right="<<rightPointer<<endl;
+int main(){
+
+    vector<string> questions = {"KADOBECODEBANCDDDEI", "ADOBECODEBANCDDD", "xyyzyzyx"};
+    vector<vector<char>> substrings = { {'A','B','C','E','K','I'}, {'A', 'B', 'C'}, {'x', 'y', 'z'} };
+
+    for(int i=0; i<questions.size(); i++){
+        cout<<"Answer for "<<questions[i]<<"is:"<<computeAnswer(questions[i], substrings[i])<<endl;
+    }
+
 
     return 0;
 }
