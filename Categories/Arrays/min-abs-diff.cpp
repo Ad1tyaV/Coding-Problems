@@ -1,5 +1,7 @@
 /*
 
+https://www.geeksforgeeks.org/smallest-difference-pair-values-two-unsorted-arrays/
+
 g++ -std=c++0x minimum-abs-diff.cpp -o min-abs-diff
 $ ./min-abs-diff
 3 pair=11,8
