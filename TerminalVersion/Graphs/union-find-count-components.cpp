@@ -1,3 +1,11 @@
+/*
+
+$ g++ -std=c++0x connected-components-UF.cpp -o con-comp-UF
+$ ./con-comp-UF
+Number of Components=3
+
+*/
+
 #include<iostream>
 #include<vector>
 
